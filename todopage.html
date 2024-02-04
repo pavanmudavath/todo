@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>todoPage</title>
+</head>
+<body style="text-align:center;">
+    <h1> TodoList  For WorkProgress  </h1>
+    <div  style="background-color: #eeeeee; margin-left:550px ; margin-right:650px ">
+        <br/>
+        <input  type="text" placeholder="Title">
+        <br/>
+        <br/>
+        <input type="text" placeholder="Description">
+        <br/>
+        <br/>
+        <button onclick="addTodo()">Add Todo</button>
+        <br/>
+        <br/>
+    </div>
+    <div style="margin-left: 550px; margin-right: 650px;">
+        <h2>TodoList</h2>
+        <ul  id="todos">
+
+        </ul>
+    </div>
+    <script>
+        function addTodo() {
+    var title = document.querySelector('input[placeholder="Title"]').value;
+    var description = document.querySelector('input[placeholder="Description"]').value;
+    var newTodo = document.createElement('li');
+    var doneButton = document.createElement('button');
+    doneButton.textContent = 'Done';
+    doneButton.addEventListener('click',function(){
+        newTodo.remove();
+    })
+
+
+    newTodo.textContent = title + ' - ' + description;
+    newTodo.appendChild(doneButton);
+    document.getElementById('todos').appendChild(newTodo);
+}
+
+    </script>
+</body>
+</html>
